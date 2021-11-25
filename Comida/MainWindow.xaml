@@ -30,7 +30,7 @@
     <DockPanel Background="#FF25BBEC" >
 
         <StackPanel DockPanel.Dock="Right" Background="White" MinWidth="250" Margin="10">
-            
+
             <TextBlock >Nombre del plato</TextBlock>
             <TextBox x:Name="NombrePlatoTextBox"></TextBox>
 
@@ -38,8 +38,8 @@
             <TextBox x:Name="RutaImagenTextBox"></TextBox>
 
             <TextBlock>Tipo de comida</TextBlock>
-            <ComboBox Margin="10">
-
+            <ComboBox Margin="10" ItemsSource="{Binding Path=TiposComidas}">
+                
             </ComboBox>
 
             <GroupBox Header="Alérgenos" Margin="10">
@@ -55,18 +55,15 @@
         </StackPanel>
 
         <ScrollViewer Margin="10" VerticalScrollBarVisibility="Auto">
-          <ListBox >
-                <DataTemplate>
-                    <WrapPanel>
-                        <Image></Image>
-                        <Image></Image>
-                        <Image></Image>
-                        <Image></Image>
-                    </WrapPanel>
-                </DataTemplate>
-        </ListBox>   
+            <ListBox >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
         </ScrollViewer>
-       
+
 
 
 
