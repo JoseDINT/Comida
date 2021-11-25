@@ -6,8 +6,69 @@
         xmlns:local="clr-namespace:Comida"
         mc:Ignorable="d"
         Title="Comida" MinHeight="450" MinWidth="800" Icon="assets/128.ico">
-    <Grid Background="LightBlue" >
-        
-        
-    </Grid>
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" >
+            <Setter Property="Margin" Value="10,10,0,0"/>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}" >
+            <Setter Property="Margin" Value="10,0,10,5"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <Style TargetType="{x:Type CheckBox}">
+
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+    </Window.Resources>
+    <DockPanel Background="#FF25BBEC" >
+
+        <StackPanel DockPanel.Dock="Right" Background="White" MinWidth="250" Margin="10">
+            
+            <TextBlock >Nombre del plato</TextBlock>
+            <TextBox x:Name="NombrePlatoTextBox"></TextBox>
+
+            <TextBlock>Foto del plato</TextBlock>
+            <TextBox x:Name="RutaImagenTextBox"></TextBox>
+
+            <TextBlock>Tipo de comida</TextBlock>
+            <ComboBox Margin="10">
+
+            </ComboBox>
+
+            <GroupBox Header="Alérgenos" Margin="10">
+                <UniformGrid Columns="2">
+                    <CheckBox>Leche</CheckBox>
+                    <CheckBox>Soja</CheckBox>
+                    <CheckBox>Gluten</CheckBox>
+                    <CheckBox>Sulfitos</CheckBox>
+                </UniformGrid>
+            </GroupBox>
+
+            <Button>Limpiar Selección</Button>
+        </StackPanel>
+
+        <ScrollViewer Margin="10" VerticalScrollBarVisibility="Auto">
+          <ListBox >
+                <DataTemplate>
+                    <WrapPanel>
+                        <Image></Image>
+                        <Image></Image>
+                        <Image></Image>
+                        <Image></Image>
+                    </WrapPanel>
+                </DataTemplate>
+        </ListBox>   
+        </ScrollViewer>
+       
+
+
+
+    </DockPanel>
 </Window>
