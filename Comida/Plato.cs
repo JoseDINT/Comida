@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 
 namespace Comida
 {
-    class Plato
+    class Plato : INotifyPropertyChanged
     {
         public string Nombre { get; set; }
         public string Imagen { get; set; }
@@ -27,6 +28,8 @@ namespace Comida
         public Plato()
         {
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public static ObservableCollection<Plato> GetSamples(string rutaImagenes)
         {

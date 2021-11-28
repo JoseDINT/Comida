@@ -7,8 +7,57 @@
         mc:Ignorable="d"
         Title="Comida" MinHeight="450" MinWidth="800" Icon="assets/128.ico">
     <Window.Resources>
-        <Style TargetType="{x:Type TextBlock}" >
-            <Setter Property="Margin" Value="10,10,0,0"/>
+
+        <local:VisibilityConverter x:Key="conversorVisibilidad"></local:VisibilityConverter>
+
+
+
+        <Style TargetType="{x:Type TextBlock}"  x:Key="nombrePlato">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="China">
+                    <Setter Property="FontFamily" 
+                            Value="Chinese Wok Food St"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Mexicana">
+                    <Setter Property="FontFamily"
+                            Value="Taco Salad"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Americana">
+                    <Setter Property="FontFamily"
+                                Value="Slim Summer"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Image}" x:Key="bandera">
+            <Setter Property="Width"
+                    Value="36"/>
+            <Setter Property="Margin" 
+                    Value="10,0,0,0"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}">
+                    <Setter Property="Source" 
+                            Value="assets\china.png"/>
+                    <Setter Property="ToolTip"
+                            Value="Comida china"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}">
+                    <Setter Property="Source" 
+                            Value="assets\mexico.png"/>
+                    <Setter Property="ToolTip"
+                            Value="Comida mexicana"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}">
+                    <Setter Property="Source"
+                            Value="assets\usa.png"/>
+                    <Setter Property="ToolTip"
+                            Value="Comida americana"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="{x:Type TextBox}" >
@@ -39,7 +88,7 @@
 
             <TextBlock>Tipo de comida</TextBlock>
             <ComboBox Margin="10" ItemsSource="{Binding Path=TiposComidas}">
-                
+
             </ComboBox>
 
             <GroupBox Header="Alérgenos" Margin="10">
